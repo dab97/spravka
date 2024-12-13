@@ -12,6 +12,12 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 import {
   Building2,
@@ -86,9 +92,18 @@ export function DocumentCard({ document }: DocumentCardProps) {
         </DialogContent>
       </Dialog>
       <CardHeader className="p-4 md:p-6 flex-none ">
-        <CardTitle className="text-sm md:text-base !leading-tight line-clamp-5	text-center">
-          {document.documentType}
-        </CardTitle>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <CardTitle className="text-sm md:text-base !leading-tight line-clamp-4	text-center">
+                {document.documentType}
+              </CardTitle>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p className="text-balance max-w-xs text-sm leading-tight text-center">{document.documentType}</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </CardHeader>
       <CardContent className="p-4 md:p-6 pt-0 md:pt-0 flex-grow flex flex-col">
         <div className="space-y-3 flex-grow">
