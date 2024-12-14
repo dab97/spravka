@@ -50,15 +50,19 @@ export const metadata: Metadata = {
 };
 
 // RootLayout компонент
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" className="light" style={{ colorScheme: "light" }}>
+    <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <ThemeSwitcher />
           {children}
         </ThemeProvider>
       </body>
-    </html>
+    </html>    
   );
 }
