@@ -70,8 +70,8 @@ body {
 
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-    --destructive: 1 76% 48%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 355 90% 70%;      /* Калиброванный рубин для тёмной темы: WCAG AA контраст > 5:1 */
+    --destructive-foreground: 222 86% 8%;
     --border: 217.2 32.6% 17.5%;    /* #1e293b slate-800 */
     --input: 217.2 32.6% 17.5%;
     --ring: 205 100% 54%;

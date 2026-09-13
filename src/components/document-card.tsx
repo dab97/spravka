@@ -164,7 +164,7 @@ export function DocumentCard({ document }: DocumentCardProps) {
             <div className="pt-0.5">
               <Badge
                 variant="ruby"
-                className="rounded-lg gap-1.5 px-2.5 py-1 text-xs font-normal"
+                className="rounded-lg gap-1.5 px-2.5 py-1 text-xs font-medium"
               >
                 <HugeiconsIcon icon={IdCardIcon} size={14} strokeWidth={1.5} className="shrink-0 text-destructive" />
                 <span>{document.requirements}</span>
