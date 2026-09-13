@@ -138,7 +138,7 @@ export default function App() {
       <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 sm:space-y-8 pb-24 sm:pb-8">
           {/* Заголовок страницы (Hero) в стиле Apple Large Title */}
         <section className="space-y-2 sm:space-y-2.5">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] sm:text-[11px] font-semibold text-primary uppercase leading-tight max-w-full">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] sm:text-[11px] font-semibold text-slate-700 dark:text-slate-200 uppercase leading-tight max-w-full">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shrink-0" />
             <span className="truncate">Филиал РГСУ в г. Минске · Электронная подача заявок</span>
           </div>
