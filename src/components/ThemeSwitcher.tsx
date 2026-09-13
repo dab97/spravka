@@ -43,7 +43,7 @@ export default function ThemeSwitcher({
         size={18}
         strokeWidth={1.5}
         className={cn(
-          "absolute inset-0 m-auto text-amber-400 transition-all duration-300 transform",
+          "absolute inset-0 m-auto transition-all duration-300 transform",
           isDark
             ? "rotate-0 scale-100 opacity-100"
             : "-rotate-90 scale-0 opacity-0 pointer-events-none"
@@ -55,7 +55,7 @@ export default function ThemeSwitcher({
         size={18}
         strokeWidth={1.5}
         className={cn(
-          "absolute inset-0 m-auto transition-all duration-300 transform text-slate-600 dark:text-slate-300",
+          "absolute inset-0 m-auto transition-all duration-300 transform",
           isDark
             ? "rotate-90 scale-0 opacity-0 pointer-events-none"
             : "rotate-0 scale-100 opacity-100"
