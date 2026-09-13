@@ -60,7 +60,7 @@ export function DocumentCard({ document }: DocumentCardProps) {
             <DialogTrigger asChild>
               <button
                 type="button"
-                className={`absolute top-3 right-3 sm:top-3.5 sm:right-3.5 z-10 bg-primary/5 hover:bg-primary/15 dark:bg-slate-800/80 dark:hover:bg-primary/20 text-muted-foreground hover:text-primary w-9 h-9 flex items-center justify-center rounded-full border border-primary/15 dark:border-slate-700/80 transition-all ${
+                className={`absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-10 bg-primary/5 hover:bg-primary/15 dark:bg-slate-800/80 dark:hover:bg-primary/20 text-muted-foreground hover:text-primary w-9 h-9 flex items-center justify-center rounded-full border border-primary/15 dark:border-slate-700/80 transition-all ${
                   !isLinkAvailable
                     ? "opacity-40 cursor-not-allowed"
                     : "cursor-pointer active:scale-95"
@@ -76,7 +76,7 @@ export function DocumentCard({ document }: DocumentCardProps) {
             {isLinkAvailable ? "Показать QR-код" : "QR-код недоступен"}
           </TooltipContent>
         </Tooltip>
-        <DialogContent className="w-full max-w-[calc(100%-2rem)] sm:max-w-96 mx-auto px-5 py-6 rounded-2xl shadow-apple-modal flex flex-col items-center">
+        <DialogContent className="w-full max-w-[calc(100%-2rem)] sm:max-w-96 mx-auto px-5 py-6 rounded-3xl shadow-apple-modal flex flex-col items-center">
           <DialogHeader className="text-center w-full">
             <DialogTitle className="text-lg sm:text-xl font-semibold text-center text-foreground">
               QR-код документа
@@ -88,7 +88,7 @@ export function DocumentCard({ document }: DocumentCardProps) {
           <div className="w-[216px] h-[216px] flex items-center justify-center my-4 bg-white rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs flex-none">
             <Suspense
               fallback={
-                <div className="w-[184px] h-[184px] rounded-xl bg-slate-100 dark:bg-slate-800 animate-pulse flex items-center justify-center text-xs text-slate-400 font-mono">
+                <div className="w-[184px] h-[184px] rounded-lg bg-slate-100 dark:bg-slate-800 animate-pulse flex items-center justify-center text-xs text-slate-400 font-mono">
                   Загрузка...
                 </div>
               }
