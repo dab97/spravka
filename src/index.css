@@ -53,8 +53,8 @@ body {
     --popover-foreground: 210 40% 98%;
 
     /* Primary Blue Dark Accent */
-    --primary: 205 100% 54%;        /* Сочный неоново-голубой для темной темы */
-    --primary-foreground: 222 86% 8%;
+    --primary: 211 100% 45%;        /* Фирменная лазурь РГСУ #0073e6 (контрастность с белым текстом > 4.5:1) */
+    --primary-foreground: 0 0% 100%; /* Чистый белый, точно как в светлой теме */
 
     --primary-dark: 222 86% 22%;
     --primary-ice: 211 58% 90%;

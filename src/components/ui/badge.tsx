@@ -17,7 +17,7 @@ const badgeVariants = cva(
         outline:
           "border-slate-200/80 dark:border-slate-800 text-slate-700 dark:text-slate-300 bg-slate-50/50 dark:bg-slate-900/50",
         blue:
-          "border-primary/20 bg-primary/10 text-primary dark:bg-primary/15 dark:border-primary/30 font-medium",
+          "border-primary/20 bg-primary/10 text-primary dark:bg-primary/15 dark:border-primary/30 dark:text-sky-400 font-medium",
         ruby:
           "border-destructive/20 bg-destructive/10 text-destructive dark:bg-destructive/15 dark:border-destructive/30 font-medium",
       },
