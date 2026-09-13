@@ -13,13 +13,13 @@ const badgeVariants = cva(
         secondary:
           "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
         destructive:
-          "border-[#A91917]/20 bg-[#A91917]/10 text-[#A91917] dark:bg-[#A91917]/25 dark:text-red-300 dark:border-[#A91917]/40",
+          "border-destructive/20 bg-destructive/10 text-destructive dark:bg-destructive/20",
         outline:
           "border-slate-200/80 dark:border-slate-800 text-slate-700 dark:text-slate-300 bg-slate-50/50 dark:bg-slate-900/50",
         blue:
-          "border-[#0180ff]/25 dark:border-[#0180ff]/35 bg-[#0180ff]/10 text-[#006bd8] dark:bg-[#0180ff]/20 dark:text-sky-300 font-medium",
+          "border-primary/20 bg-primary/10 text-primary dark:bg-primary/20 font-medium",
         ruby:
-          "border-[#A91917]/20 dark:border-[#A91917]/35 bg-[#A91917]/10 dark:bg-[#A91917]/20 text-[#A91917] dark:text-rose-300 font-medium",
+          "border-destructive/20 bg-destructive/10 text-destructive dark:bg-destructive/20 font-medium",
       },
     },
     defaultVariants: {

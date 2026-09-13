@@ -86,7 +86,7 @@ export default function App() {
                         asChild
                         variant="outline"
                         size="icon"
-                        className="w-9 h-9 rounded-xl border border-slate-200/80 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-[#0180ff] dark:hover:text-sky-300 hover:bg-[#0180ff]/10 dark:hover:bg-[#0180ff]/20 active:scale-95 transition-all"
+                        className="w-9 h-9 rounded-xl border border-slate-200/80 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 dark:hover:bg-primary/20 active:scale-95 transition-all"
                       >
                         <a
                           href={data.site.links.home}
@@ -109,7 +109,7 @@ export default function App() {
                         asChild
                         variant="outline"
                         size="icon"
-                        className="w-9 h-9 rounded-xl border border-slate-200/80 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-[#0180ff] dark:hover:text-sky-300 hover:bg-[#0180ff]/10 dark:hover:bg-[#0180ff]/20 active:scale-95 transition-all"
+                        className="w-9 h-9 rounded-xl border border-slate-200/80 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 dark:hover:bg-primary/20 active:scale-95 transition-all"
                       >
                         <a
                           href={data.site.links.schedule}
@@ -129,7 +129,7 @@ export default function App() {
               )}
 
               {/* Смена темы — оформлена в абсолютно идентичном стиле */}
-              <ThemeSwitcher className="w-9 h-9 rounded-xl border border-slate-200/80 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-[#0180ff] dark:hover:text-sky-300 hover:bg-[#0180ff]/10 dark:hover:bg-[#0180ff]/20 active:scale-95 transition-all" />
+              <ThemeSwitcher className="w-9 h-9 rounded-xl border border-slate-200/80 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 dark:hover:bg-primary/20 active:scale-95 transition-all" />
             </div>
           </div>
         </header>
@@ -138,8 +138,8 @@ export default function App() {
       <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 sm:space-y-8 pb-24 sm:pb-8">
           {/* Заголовок страницы (Hero) в стиле Apple Large Title */}
         <section className="space-y-2 sm:space-y-2.5">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 rounded-full bg-[#0180ff]/8 dark:bg-[#0180ff]/15 border border-[#0180ff]/15 dark:border-[#0180ff]/25 text-[10px] sm:text-[11px] font-semibold text-[#006bd8] dark:text-sky-300 uppercase leading-tight max-w-full">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#0180ff] dark:bg-sky-400 animate-pulse shrink-0" />
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] sm:text-[11px] font-semibold text-primary uppercase leading-tight max-w-full">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shrink-0" />
             <span className="truncate">Филиал РГСУ в г. Минске · Электронная подача заявок</span>
           </div>
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground !leading-tight">
@@ -175,7 +175,7 @@ export default function App() {
               onClick={retry}
               variant="default"
               size="sm"
-              className="rounded-xl gap-2 bg-primary hover:bg-[#082567] text-white h-10 px-4"
+              className="rounded-xl gap-2 h-10 px-4"
             >
               <HugeiconsIcon icon={RefreshIcon} size={15} strokeWidth={1.5} />
               Повторить попытку
@@ -232,7 +232,7 @@ export default function App() {
               href={data?.site?.links?.home || "https://rgsu.by"}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#0180ff] dark:hover:text-sky-300 transition-colors py-1"
+              className="hover:text-primary transition-colors py-1"
             >
               Официальный сайт
             </a>
@@ -241,7 +241,7 @@ export default function App() {
               href={data?.site?.links?.schedule || "https://shedule.rgsu.by"}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#0180ff] dark:hover:text-sky-300 transition-colors py-1"
+              className="hover:text-primary transition-colors py-1"
             >
               Расписание
             </a>
@@ -260,7 +260,7 @@ export default function App() {
               href={data.site.links.home}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center justify-center gap-1 text-slate-600 dark:text-slate-400 hover:text-[#102FA1] dark:hover:text-blue-300 active:scale-95 transition-all"
+              className="flex flex-col items-center justify-center gap-1 text-slate-600 dark:text-slate-400 hover:text-primary active:scale-95 transition-all"
             >
               <HugeiconsIcon icon={Home01Icon} size={20} strokeWidth={1.5} />
               <span className="text-[11px] font-medium leading-none">На сайт</span>
@@ -270,7 +270,7 @@ export default function App() {
               href={data.site.links.schedule}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center justify-center gap-1 text-slate-600 dark:text-slate-400 hover:text-[#102FA1] dark:hover:text-blue-300 active:scale-95 transition-all"
+              className="flex flex-col items-center justify-center gap-1 text-slate-600 dark:text-slate-400 hover:text-primary active:scale-95 transition-all"
             >
               <HugeiconsIcon icon={Calendar03Icon} size={20} strokeWidth={1.5} />
               <span className="text-[11px] font-medium leading-none">Расписание</span>

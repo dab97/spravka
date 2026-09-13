@@ -22,7 +22,7 @@ body {
 
     --primary-dark: 222 86% 22%;     /* #082567 (Pantone 2758 C - Сапфир / Navy) */
     --primary-ice: 211 58% 90%;      /* #D5E4F4 (Pantone 656 U - Ледяной пастельный) */
-    --primary-azure: 210 100% 50%;   /* #0180FF (Лазурный) */
+    --primary-azure: 211 100% 45%;   /* #0073e6 (Лазурный) */
 
     /* Secondary / Subcards */
     --secondary: 210 40% 96.1%;     /* #f1f5f9 slate-100 */
@@ -39,7 +39,7 @@ body {
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;    /* #e2e8f0 slate-200 */
     --input: 214.3 31.8% 91.4%;
-    --ring: 210 100% 50%;
+    --ring: 211 100% 45%;
     --radius: 0.75rem;              /* 12px squircle default */
   }
 

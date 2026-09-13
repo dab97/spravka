@@ -33,7 +33,7 @@ export function DocumentsSection({ category, id }: DocumentsSectionProps) {
     <section id={id} className="w-full space-y-4 scroll-mt-20 sm:scroll-mt-24">
       <div className="sticky top-14 z-30 -mx-4 px-4 sm:-mx-6 sm:px-6 flex items-center justify-between gap-3 border-b border-slate-200/80 dark:border-slate-800 py-2.5 sm:py-3 bg-slate-50/90 dark:bg-slate-950/90 backdrop-blur-md transition-colors">
         <div className="flex items-center gap-2.5 min-w-0">
-          <div className="w-8 h-8 rounded-xl bg-[#0180ff]/10 dark:bg-[#0180ff]/20 text-[#0180ff] dark:text-sky-300 flex items-center justify-center shrink-0 border border-[#0180ff]/15 dark:border-[#0180ff]/25 shadow-xs">
+          <div className="w-8 h-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 border border-primary/20 dark:bg-primary/20 shadow-xs">
             <HugeiconsIcon icon={CategoryIcon} size={18} strokeWidth={1.5} />
           </div>
           <h2 className="text-base sm:text-lg md:text-xl font-semibold tracking-tight text-foreground truncate">

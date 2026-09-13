@@ -32,7 +32,7 @@ export default function ThemeSwitcher({
       size="icon"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className={cn(
-        "relative w-9 h-9 rounded-xl border border-slate-200/80 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-[#0180ff] dark:hover:text-sky-300 hover:bg-[#0180ff]/10 dark:hover:bg-[#0180ff]/20 active:scale-95 transition-all overflow-hidden",
+        "relative w-9 h-9 rounded-xl border border-slate-200/80 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 dark:hover:bg-primary/20 active:scale-95 transition-all overflow-hidden",
         className
       )}
       aria-label={isDark ? "Включить светлую тему" : "Включить тёмную тему"}

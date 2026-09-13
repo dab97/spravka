@@ -53,14 +53,14 @@ export function DocumentCard({ document }: DocumentCardProps) {
   const isLinkAvailable = Boolean(document.link);
 
   return (
-    <Card className="w-full h-full flex flex-col relative group hover:border-[#0180ff]/50 dark:hover:border-sky-400/50 hover:shadow-apple-hover transition-all duration-300 bg-gradient-to-br from-blue-50/80 via-card to-card dark:from-[#0180ff]/10 dark:via-card dark:to-card">
+    <Card className="w-full h-full flex flex-col relative group hover:border-primary/40 hover:shadow-apple-hover transition-all duration-300 bg-gradient-to-br from-blue-50/80 via-card to-card dark:from-primary/10 dark:via-card dark:to-card">
       <Dialog open={isQrModalOpen} onOpenChange={setIsQrModalOpen}>
         <Tooltip>
           <TooltipTrigger asChild>
             <DialogTrigger asChild>
               <button
                 type="button"
-                className={`absolute top-3 right-3 sm:top-3.5 sm:right-3.5 z-10 bg-[#0180ff]/5 hover:bg-[#0180ff]/15 dark:bg-slate-800/80 dark:hover:bg-[#0180ff]/20 text-slate-500 hover:text-[#0180ff] dark:text-slate-300 dark:hover:text-sky-300 w-9 h-9 flex items-center justify-center rounded-full border border-[#0180ff]/15 dark:border-slate-700/80 transition-all ${
+                className={`absolute top-3 right-3 sm:top-3.5 sm:right-3.5 z-10 bg-primary/5 hover:bg-primary/15 dark:bg-slate-800/80 dark:hover:bg-primary/20 text-muted-foreground hover:text-primary w-9 h-9 flex items-center justify-center rounded-full border border-primary/15 dark:border-slate-700/80 transition-all ${
                   !isLinkAvailable
                     ? "opacity-40 cursor-not-allowed"
                     : "cursor-pointer active:scale-95"
@@ -103,7 +103,7 @@ export function DocumentCard({ document }: DocumentCardProps) {
             Отсканируйте камерой смартфона для перехода к форме
           </p>
           <Button
-            className="w-full mt-4 h-11 sm:h-10 text-sm rounded-xl border-[#0180ff]/30 text-[#006bd8] hover:bg-[#0180ff]/10 hover:text-[#006bd8] dark:text-sky-300 dark:border-sky-800/60 dark:hover:bg-[#0180ff]/20"
+            className="w-full mt-4 h-11 sm:h-10 text-sm rounded-xl border-primary/30 text-primary hover:bg-primary/10 hover:text-primary dark:border-primary/40"
             variant="outline"
             onClick={closeQrModal}
           >
@@ -166,7 +166,7 @@ export function DocumentCard({ document }: DocumentCardProps) {
                 variant="ruby"
                 className="rounded-lg gap-1.5 px-2.5 py-1 text-xs font-normal"
               >
-                <HugeiconsIcon icon={IdCardIcon} size={14} strokeWidth={1.5} className="shrink-0 text-[#A91917] dark:text-rose-300" />
+                <HugeiconsIcon icon={IdCardIcon} size={14} strokeWidth={1.5} className="shrink-0 text-destructive" />
                 <span>{document.requirements}</span>
               </Badge>
             </div>
