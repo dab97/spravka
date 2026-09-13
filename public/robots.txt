@@ -1,0 +1,32 @@
+# robots.txt для spravka.rgsu.by
+User-agent: *
+Allow: /
+
+# Поисковые роботы AI / GEO / AEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# Карта сайта и хост
+Sitemap: https://spravka.rgsu.by/sitemap.xml
+Host: https://spravka.rgsu.by

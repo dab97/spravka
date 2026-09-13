@@ -1,0 +1,40 @@
+# Настройки кэширования для хостинга Apache
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Хэшированные ассеты (JS, CSS) кэшируем на 1 год
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+
+  # HTML и JSON НЕ кэшируем вовсе, чтобы изменения кабинетов были видны мгновенно!
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/json "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Для JSON, HTML, sitemap, robots и llms отключаем кэш браузера и прокси
+  <FilesMatch "\.(json|html|xml|txt|webmanifest)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+  </FilesMatch>
+
+  # Для ассетов с хэшами в имени разрешаем долгосрочный кэш
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+# Правильная отдача кодировки UTF-8 и MIME-типов
+AddDefaultCharset UTF-8
+AddType application/json .json
+AddType application/manifest+json .webmanifest
+AddType text/plain;charset=UTF-8 .txt
+AddType application/xml .xml
+
+# Страница ошибки 404
+ErrorDocument 404 /404.html

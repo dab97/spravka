@@ -1,0 +1,16 @@
+{
+  "name": "Заказ справок | РГСУ Минск",
+  "short_name": "Справки РГСУ",
+  "description": "Онлайн-заказ справок и документов: филиал РГСУ в г. Минске",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090d16",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png"
+    }
+  ]
+}
