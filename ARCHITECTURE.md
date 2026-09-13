@@ -25,9 +25,9 @@
 ```typescript
 export interface Document {
   id: number;
-  department: string;     // "Учебная часть", "Отдел кадров", "Бухгалтерия"
+  department: string;     // "Администрация", "Учебная часть", "Отдел кадров", "Бухгалтерия"
   documentType: string;   // Полное наименование справки
-  room: string;           // Номер кабинета ("303", "206")
+  room: string;           // Номер кабинета ("201", "303", "206", "209")
   purpose: string;        // Для чего выдается
   destination: string;    // Куда предоставляется
   issueDays: string;      // Сроки и дни выдачи ("По мере готовности", "Ср, пт с 13:30")

@@ -1,7 +1,8 @@
 import { useTheme } from "@/context/theme-provider";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Sun03Icon, Moon01Icon } from "@hugeicons/core-free-icons";
+import { Sun03Icon, Moon02Icon } from "@hugeicons/core-free-icons";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import {
   Tooltip,
   TooltipContent,
@@ -30,17 +31,36 @@ export default function ThemeSwitcher({
       variant="outline"
       size="icon"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className={
-        className ||
-        "w-9 h-9 rounded-xl border border-slate-200/80 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400"
-      }
+      className={cn(
+        "relative w-9 h-9 rounded-xl border border-slate-200/80 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-[#0180ff] dark:hover:text-sky-300 hover:bg-[#0180ff]/10 dark:hover:bg-[#0180ff]/20 active:scale-95 transition-all overflow-hidden",
+        className
+      )}
       aria-label={isDark ? "Включить светлую тему" : "Включить тёмную тему"}
     >
-      {isDark ? (
-        <HugeiconsIcon icon={Sun03Icon} size={18} strokeWidth={1.5} className="text-amber-400" />
-      ) : (
-        <HugeiconsIcon icon={Moon01Icon} size={18} strokeWidth={1.5} className="text-slate-600 dark:text-slate-300" />
-      )}
+      {/* Солнце (появляется в тёмной теме для перехода на светлую) */}
+      <HugeiconsIcon
+        icon={Sun03Icon}
+        size={18}
+        strokeWidth={1.5}
+        className={cn(
+          "absolute inset-0 m-auto text-amber-400 transition-all duration-300 transform",
+          isDark
+            ? "rotate-0 scale-100 opacity-100"
+            : "-rotate-90 scale-0 opacity-0 pointer-events-none"
+        )}
+      />
+      {/* Лаконичный полумесяц без кратеров (в светлой теме для перехода на тёмную) */}
+      <HugeiconsIcon
+        icon={Moon02Icon}
+        size={18}
+        strokeWidth={1.5}
+        className={cn(
+          "absolute inset-0 m-auto transition-all duration-300 transform text-slate-600 dark:text-slate-300",
+          isDark
+            ? "rotate-90 scale-0 opacity-0 pointer-events-none"
+            : "rotate-0 scale-100 opacity-100"
+        )}
+      />
       <span className="sr-only">Переключить тему</span>
     </Button>
   );

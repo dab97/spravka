@@ -28,7 +28,7 @@ npm run preview   # Предпросмотр собранной папки dist
 - `src/components/documents-section.tsx` — секция категории справок с бейджем количества и сеткой карточек.
 - `src/components/ThemeSwitcher.tsx` — переключатель светлой и тёмной темы.
 - `src/context/theme-provider.tsx` — React-контекст темы (`light`, `dark`, `system`) с сохранением в `localStorage` (`spravka-ui-theme`).
-- `src/components/ui/` — компоненты shadcn: `badge`, `button`, `card`, `dialog`, `input`, `skeleton`, `tooltip`.
+- `src/components/ui/` — компоненты shadcn: `badge`, `button`, `card`, `dialog`, `skeleton`, `tooltip`.
 - `src/types/documents.ts` — TypeScript интерфейсы для структур данных.
 - `public/data/documents.json` — основной файл данных, редактируемый на хостинге.
 - `public/.htaccess` — правила Apache для моментального обновления `documents.json` без кэширования.
@@ -43,14 +43,14 @@ npm run preview   # Предпросмотр собранной папки dist
    Переходы на официальный сайт (`rgsu.by`), расписание (`shedule.rgsu.by`) и формы заказа — это внешние URL. Использовать `<Button asChild><a href="..." target="_blank" rel="noopener noreferrer">...</a></Button>`. Никаких SPA-роутеров.
 3. **Иерархия скруглений Squircle:**
    - Карточки документов и модалки: `rounded-2xl`
-   - Кнопки, инпуты, поле поиска: `rounded-xl`
-   - Бейджи: `rounded-full`
+   - Кнопки: `rounded-xl`
+   - Бейджи: `rounded-full` (номера кабинетов) и `rounded-lg` (чип паспорта)
 4. **Микро-границы 1px (Hairline):**
    Не использовать тяжелые падающие тени. Визуальная иерархия строится на контрасте поверхностей Slate (`bg-slate-50` / `dark:bg-slate-950` для фона, `bg-white` / `dark:bg-slate-900` для карточек) и тонких границах `border-slate-200/80` / `dark:border-slate-800`.
 5. **Числа и коды:**
    Номера кабинетов, счетчик справок и дни выдачи обязательно сопровождаются классами `font-mono tabular-nums`.
-6. **Основной акцент:**
-   Фирменный синий РГСУ (`bg-blue-600`, `text-blue-600`, `dark:text-blue-400`, фокус `ring-blue-500`).
+6. **Фирменные цвета:**
+   Лазурь РГСУ (`#0180ff`, фокус `ring-[#0180ff]`) для ключевых действий и кабинетов, фирменный рубин (`#A91917`, Pantone 7627 C) для важных условий (паспорт).
 
 ---
 

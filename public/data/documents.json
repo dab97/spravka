@@ -9,6 +9,22 @@
   },
   "categories": [
     {
+      "title": "Студенческие пропуска",
+      "documents": [
+        {
+          "id": 8,
+          "department": "Администрация",
+          "documentType": "Заявка на изготовление пропуска",
+          "room": "201",
+          "purpose": "Выдаётся временный пропуск (подлежит возврату при получении постоянного). Оформлять заблаговременно",
+          "destination": "Филиал РГСУ в г. Минске",
+          "issueDays": "Временный — до 1 часа, именной — около 1 месяца",
+          "requirements": "Документ, удостоверяющий личность",
+          "link": "https://forms.gle/vCfqHnh4E9GstmZ78"
+        }
+      ]
+    },
+    {
       "title": "Справки об обучении",
       "documents": [
         {
@@ -80,7 +96,7 @@
           "destination": "По месту требования",
           "issueDays": "Среда с 13:30-17:00",
           "requirements": "Документ, удостоверяющий личность",
-          "link": "https://docs.google.com/forms/d/1U1rW4ayw1RpfAYXabVgCp55C7eG6-reD3FDw8BOdOWo/edit"
+          "link": "https://docs.google.com/forms/d/1U1rW4ayw1RpfAYXabVgCp55C7eG6-reD3FDw8BOdOWo/viewform"
         },
         {
           "id": 7,

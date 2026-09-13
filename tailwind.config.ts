@@ -42,6 +42,13 @@ export default {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+        rgsu: {
+          sapphire: '#082567',
+          cobalt: '#102FA1',
+          ice: '#D5E4F4',
+          ruby: '#A91917',
+          azure: '#0085FF',
+        },
       },
       borderRadius: {
         '3xl': '1.5rem', // 24px

@@ -16,9 +16,13 @@ body {
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* Primary Blue Accent System */
-    --primary: 221.2 83.2% 53.3%;   /* #2563eb blue-600 */
-    --primary-foreground: 210 40% 98%;
+    /* RGSU Brandbook Accent System */
+    --primary: 211 100% 45%;         /* #0073e6 (Фирменная лазурь РГСУ, WCAG AA compliant 4.5:1) */
+    --primary-foreground: 0 0% 100%;
+
+    --primary-dark: 222 86% 22%;     /* #082567 (Pantone 2758 C - Сапфир / Navy) */
+    --primary-ice: 211 58% 90%;      /* #D5E4F4 (Pantone 656 U - Ледяной пастельный) */
+    --primary-azure: 210 100% 50%;   /* #0180FF (Лазурный) */
 
     /* Secondary / Subcards */
     --secondary: 210 40% 96.1%;     /* #f1f5f9 slate-100 */
@@ -31,11 +35,11 @@ body {
     /* Accents & Borders (Hairline 1px) */
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 1 76% 38%;        /* #A91917 (Pantone 7627 C - Фирменный рубин) */
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;    /* #e2e8f0 slate-200 */
     --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --ring: 210 100% 50%;
     --radius: 0.75rem;              /* 12px squircle default */
   }
 
@@ -49,8 +53,12 @@ body {
     --popover-foreground: 210 40% 98%;
 
     /* Primary Blue Dark Accent */
-    --primary: 217.2 91.2% 59.8%;   /* #3b82f6 blue-500 */
-    --primary-foreground: 224 71% 4%;
+    --primary: 205 100% 54%;        /* Сочный неоново-голубой для темной темы */
+    --primary-foreground: 222 86% 8%;
+
+    --primary-dark: 222 86% 22%;
+    --primary-ice: 211 58% 90%;
+    --primary-azure: 210 100% 50%;
 
     /* Subcards & Secondary */
     --secondary: 217.2 32.6% 17.5%; /* #1e293b slate-800 */
@@ -62,11 +70,11 @@ body {
 
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 1 76% 48%;
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;    /* #1e293b slate-800 */
     --input: 217.2 32.6% 17.5%;
-    --ring: 217.2 91.2% 59.8%;
+    --ring: 205 100% 54%;
   }
 }
 
@@ -78,3 +86,14 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
