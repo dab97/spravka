@@ -7,7 +7,6 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "generate:og": "node scripts/generate-og.cjs",
     "lint": "eslint ."
   },
   "dependencies": {
