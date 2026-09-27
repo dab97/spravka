@@ -32,7 +32,7 @@ export default function ThemeSwitcher({
       size="icon"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className={cn(
-        "relative w-9 h-9 rounded-xl border border-slate-200/80 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 dark:hover:bg-primary/20 active:scale-95 transition-all overflow-hidden",
+        "relative w-9 h-9 rounded-xl border border-slate-200/80 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-rgsu-ice hover:bg-primary/10 dark:hover:bg-primary/20 active:scale-95 transition overflow-hidden",
         className
       )}
       aria-label={isDark ? "Включить светлую тему" : "Включить тёмную тему"}
@@ -43,7 +43,7 @@ export default function ThemeSwitcher({
         size={18}
         strokeWidth={1.5}
         className={cn(
-          "absolute inset-0 m-auto transition-all duration-300 transform",
+          "absolute inset-0 m-auto transition-[opacity,transform] duration-300",
           isDark
             ? "rotate-0 scale-100 opacity-100"
             : "-rotate-90 scale-0 opacity-0 pointer-events-none"
@@ -55,7 +55,7 @@ export default function ThemeSwitcher({
         size={18}
         strokeWidth={1.5}
         className={cn(
-          "absolute inset-0 m-auto transition-all duration-300 transform",
+          "absolute inset-0 m-auto transition-[opacity,transform] duration-300",
           isDark
             ? "rotate-90 scale-0 opacity-0 pointer-events-none"
             : "rotate-0 scale-100 opacity-100"

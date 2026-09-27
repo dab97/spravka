@@ -1,9 +1,31 @@
 import path from "path";
 import react from "@vitejs/plugin-react";
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
+
+// Инлайнит единственный CSS-бандл в index.html: убирает render-blocking запрос.
+// CSS у проекта небольшой (~7 КБ), отдельный запрос стоит дороже, чем пара КБ в HTML.
+function inlineCss(): Plugin {
+  return {
+    name: "inline-css",
+    apply: "build",
+    enforce: "post",
+    transformIndexHtml(html, ctx) {
+      if (!ctx.bundle) return html;
+      for (const [fileName, file] of Object.entries(ctx.bundle)) {
+        if (file.type !== "asset" || !fileName.endsWith(".css")) continue;
+        const linkRe = new RegExp(`<link[^>]*href="/${fileName}"[^>]*>`);
+        if (linkRe.test(html)) {
+          html = html.replace(linkRe, `<style>${file.source}</style>`);
+          delete ctx.bundle[fileName];
+        }
+      }
+      return html;
+    },
+  };
+}
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), inlineCss()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

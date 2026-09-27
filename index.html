@@ -11,15 +11,15 @@
     <link rel="canonical" href="https://spravka.rgsu.by/" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
-    <!-- DNS-prefetch и preconnect для мгновенного перехода по ссылкам и формам -->
+    <!-- DNS-prefetch внешних доменов: переходы по ссылкам только по клику, поэтому лёгкий dns-prefetch вместо preconnect -->
     <link rel="dns-prefetch" href="https://rgsu.by" />
     <link rel="dns-prefetch" href="https://shedule.rgsu.by" />
-    <link rel="preconnect" href="https://rgsu.by" />
-    <link rel="preconnect" href="https://shedule.rgsu.by" />
     <link rel="dns-prefetch" href="https://forms.yandex.ru" />
     <link rel="dns-prefetch" href="https://docs.google.com" />
     <link rel="dns-prefetch" href="https://forms.gle" />
     <link rel="preload" href="/data/documents.json" as="fetch" crossorigin="anonymous" />
+    <!-- Preload фирменного шрифта героя: вне критической цепочки CSS -> шрифт -->
+    <link rel="preload" href="/fonts/bebas-neue-pro-bold.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Geo / Местоположение (г. Минск, филиал РГСУ) -->
     <meta name="geo.region" content="BY-HM" />
@@ -27,12 +27,12 @@
     <meta name="geo.position" content="53.8745;27.6321" />
     <meta name="ICBM" content="53.8745, 27.6321" />
 
-    <!-- Favicon и PWA / Мобильные закладки -->
-    <link rel="icon" type="image/svg+xml" href="/logo-white.svg?v=2026" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=2026" />
-    <link rel="shortcut icon" href="/favicon.ico?v=2026" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=2026" />
-    <link rel="manifest" href="/site.webmanifest?v=2026" />
+    <!-- Favicon и PWA / Мобильные закладки (круглый знак: белый символ на Pantone 286 C #102FA1) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2027" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=2027" />
+    <link rel="shortcut icon" href="/favicon.ico?v=2027" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=2027" />
+    <link rel="manifest" href="/site.webmanifest?v=2027" />
     <meta name="apple-mobile-web-app-title" content="Справки РГСУ" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />

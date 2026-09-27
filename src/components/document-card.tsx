@@ -4,17 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Document } from "@/types/documents";
 import { useState, lazy, Suspense } from "react";
 
-const StyledQrCode = lazy(() =>
-  import("./styled-qr-code").then((mod) => ({ default: mod.StyledQrCode }))
-);
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
+// Модалка QR-кода — отдельный чанк, монтируется только по клику на иконку
+const QrDialog = lazy(() => import("./qr-dialog"));
 import {
   Tooltip,
   TooltipContent,
@@ -53,14 +44,25 @@ export function DocumentCard({ document }: DocumentCardProps) {
   const isLinkAvailable = Boolean(document.link);
 
   return (
-    <Card className="w-full h-full flex flex-col relative group hover:border-primary/40 hover:shadow-apple-hover transition-all duration-300 bg-gradient-to-br from-blue-50/80 via-card to-card dark:from-primary/10 dark:via-card dark:to-card">
-      <Dialog open={isQrModalOpen} onOpenChange={setIsQrModalOpen}>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <DialogTrigger asChild>
+    <Card className="w-full h-full flex flex-col relative group hover:border-primary/40 hover:shadow-apple-hover transition duration-300 bg-gradient-to-br from-blue-50/80 via-card to-card dark:from-primary/10 dark:via-card dark:to-card">
+      {/* QR-кнопка в потоке шапки, а не absolute — строка отдела с бейджем всегда ниже неё */}
+      <CardHeader className="p-4 sm:p-5 pb-2 sm:pb-3 flex-none flex-row items-start justify-between gap-3 space-y-0">
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <CardTitle className="flex-1 min-w-0 text-sm sm:text-base font-semibold text-foreground !leading-snug line-clamp-3">
+                {document.documentType}
+              </CardTitle>
+            </TooltipTrigger>
+            <TooltipContent className="max-w-xs text-xs">
+              <p className="text-balance leading-tight">{document.documentType}</p>
+            </TooltipContent>
+          </Tooltip>
+          <Tooltip>
+            <TooltipTrigger asChild>
               <button
                 type="button"
-                className={`absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-10 bg-primary/5 hover:bg-primary/15 dark:bg-slate-800/80 dark:hover:bg-primary/20 text-muted-foreground hover:text-primary w-9 h-9 flex items-center justify-center rounded-full border border-primary/15 dark:border-slate-700/80 transition-all ${
+                disabled={!isLinkAvailable}
+                className={`shrink-0 bg-primary/5 hover:bg-primary/15 dark:bg-primary/15 dark:hover:bg-primary/25 dark:border-primary/30 dark:text-slate-200 dark:hover:text-rgsu-ice text-muted-foreground hover:text-primary w-9 h-9 flex items-center justify-center rounded-full border border-primary/15 transition ${
                   !isLinkAvailable
                     ? "opacity-40 cursor-not-allowed"
                     : "cursor-pointer active:scale-95"
@@ -70,60 +72,19 @@ export function DocumentCard({ document }: DocumentCardProps) {
               >
                 <HugeiconsIcon icon={QrCodeIcon} size={18} strokeWidth={1.5} />
               </button>
-            </DialogTrigger>
-          </TooltipTrigger>
-          <TooltipContent side="bottom" className="text-xs">
-            {isLinkAvailable ? "Показать QR-код" : "QR-код недоступен"}
-          </TooltipContent>
-        </Tooltip>
-        <DialogContent className="w-full max-w-[calc(100%-2rem)] sm:max-w-96 mx-auto px-5 py-6 rounded-3xl shadow-apple-modal flex flex-col items-center">
-          <DialogHeader className="text-center w-full">
-            <DialogTitle className="text-lg sm:text-xl font-semibold text-center text-foreground">
-              QR-код документа
-            </DialogTitle>
-            <DialogDescription className="mt-2 text-xs sm:text-sm text-center leading-snug">
-              {document.documentType}
-            </DialogDescription>
-          </DialogHeader>
-          <div className="w-[216px] h-[216px] flex items-center justify-center my-4 bg-white rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs flex-none">
-            <Suspense
-              fallback={
-                <div className="w-[184px] h-[184px] rounded-lg bg-slate-100 dark:bg-slate-800 animate-pulse flex items-center justify-center text-xs text-slate-400 font-mono">
-                  Загрузка...
-                </div>
-              }
-            >
-              <StyledQrCode
-                value={document.link || document.id.toString()}
-                size={184}
-              />
-            </Suspense>
-          </div>
-          <p className="text-xs text-center text-muted-foreground">
-            Отсканируйте камерой смартфона для перехода к форме
-          </p>
-          <Button
-            className="w-full mt-4 h-11 sm:h-10 text-sm rounded-xl border-primary/30 text-primary hover:bg-primary/10 hover:text-primary dark:border-primary/40"
-            variant="outline"
-            onClick={closeQrModal}
-          >
-            Закрыть
-          </Button>
-        </DialogContent>
-      </Dialog>
+            </TooltipTrigger>
+            <TooltipContent side="bottom" className="text-xs">
+              {isLinkAvailable ? "Показать QR-код" : "QR-код недоступен"}
+            </TooltipContent>
+          </Tooltip>
+        </CardHeader>
 
-      <CardHeader className="p-4 sm:p-5 pb-2 sm:pb-3 flex-none pr-14 sm:pr-16">
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <CardTitle className="text-sm sm:text-base font-semibold text-foreground !leading-snug line-clamp-3">
-              {document.documentType}
-            </CardTitle>
-          </TooltipTrigger>
-          <TooltipContent className="max-w-xs text-xs">
-            <p className="text-balance leading-tight">{document.documentType}</p>
-          </TooltipContent>
-        </Tooltip>
-      </CardHeader>
+        {/* Модалка QR-кода — отдельный чанк, в DOM только пока открыта */}
+        {isQrModalOpen && (
+          <Suspense fallback={null}>
+            <QrDialog document={document} onClose={closeQrModal} />
+          </Suspense>
+        )}
 
       <CardContent className="p-4 sm:p-5 pt-0 flex-grow flex flex-col justify-between">
         <div className="space-y-2 sm:space-y-2.5 flex-grow py-1">
@@ -136,7 +97,7 @@ export function DocumentCard({ document }: DocumentCardProps) {
             </div>
             <Badge
               variant="blue"
-              className="px-2 py-0.5 font-mono tabular-nums text-xs shrink-0"
+              className="px-2 py-0.5 text-xs shrink-0"
             >
               Каб. {document.room || "—"}
             </Badge>
@@ -177,7 +138,7 @@ export function DocumentCard({ document }: DocumentCardProps) {
           {isLinkAvailable ? (
             <Button
               asChild
-              className="w-full h-11 sm:h-10 text-xs sm:text-sm font-semibold rounded-xl gap-1.5 transition-all active:scale-[0.98]"
+              className="w-full h-11 sm:h-10 text-xs sm:text-sm font-semibold rounded-xl gap-1.5 transition active:scale-[0.98]"
               variant="default"
             >
               <a

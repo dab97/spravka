@@ -32,16 +32,16 @@ export const StyledQrCode: React.FC<StyledQrCodeProps> = ({
       image: "/favicon.png",
       dotsOptions: {
         type: "square",
-        color: "#0F172A",
+        color: "#082567",
         roundSize: false,
       },
       cornersSquareOptions: {
         type: isClassic ? "square" : "extra-rounded",
-        color: "#0F172A",
+        color: "#082567",
       },
       cornersDotOptions: {
         type: isClassic ? "square" : "extra-rounded",
-        color: "#0F172A",
+        color: "#082567",
       },
       backgroundOptions: {
         color: "transparent",

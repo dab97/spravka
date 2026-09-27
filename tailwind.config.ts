@@ -8,6 +8,18 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        // Дисплейный шрифт для крупных заголовков (кириллический Bebas Neue Pro)
+        display: ['"Bebas Neue Pro"', '"Bebas Neue"', 'Oswald', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        // Именованная дисплейная ступень героя: 5rem, квадратная интерлиньяж как у text-6xl/7xl/8xl
+        display: ['5rem', { lineHeight: '1' }],
+      },
+      backgroundImage: {
+        // Единственный фирменный градиент из брендбука: navy Pantone 2758 C -> royal Pantone 286 C
+        'rgsu-brand': 'linear-gradient(90deg, #082567 0%, #102FA1 100%)',
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -43,11 +55,11 @@ export default {
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         rgsu: {
-          sapphire: '#082567',
-          cobalt: '#102FA1',
-          ice: '#D5E4F4',
-          ruby: '#A91917',
-          azure: '#0085FF',
+          navy: '#082567',      // Тёмно-синий логотипа (Pantone 2758 C)
+          royal: '#102FA1',     // Основной синий / Royal Blue (Pantone 286 C)
+          ice: '#D5E4F4',       // Ледяной пастельный (Pantone 656 U)
+          ruby: '#A91917',      // Фирменный рубин (Pantone 7627 C)
+          azure: '#0085FF',     // Лазурный (экранный акцент)
         },
       },
       borderRadius: {

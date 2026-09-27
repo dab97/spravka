@@ -60,33 +60,33 @@ export default function App() {
   return (
     <TooltipProvider delayDuration={150}>
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
-        {/* 1. Sticky Header (56px) - Тонкое матовое стекло без резкой белой полосы */}
-        <header className="sticky top-0 z-40 w-full h-14 backdrop-blur-md bg-white/25 dark:bg-slate-950/30 border-b border-slate-200/60 dark:border-slate-800/60">
-          <div className="max-w-6xl mx-auto h-full px-4 sm:px-6 flex items-center justify-between gap-4">
-            {/* Логотип и название сервиса */}
-            <div className="flex items-center gap-2.5">
+        {/* 1. Плавающая капсула Liquid Glass — контент прокручивается под стеклом */}
+        <header className="sticky top-0 z-40 w-full px-3 sm:px-5 pt-3 pointer-events-none">
+          <div className="glass-header pointer-events-auto max-w-6xl mx-auto h-14 rounded-full flex items-center justify-between gap-3 pl-2.5 pr-2.5 bg-white/80 dark:bg-slate-900/85 backdrop-blur-xl backdrop-saturate-150 border border-white/70 dark:border-white/15 shadow-[0_1px_3px_rgba(15,23,42,0.08),0_4px_12px_rgba(15,23,42,0.06),inset_0_1px_0_0_rgba(255,255,255,0.75)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.5),inset_0_1px_0_0_rgba(255,255,255,0.08)]">
+            {/* Логотип и название сервиса: единый синий вариант для всех тем */}
+            <div className="flex items-center gap-2.5 min-w-0">
               <img
                 src="/logo-white.svg"
                 alt="Логотип РГСУ"
-                className="w-8 h-8 rounded-xl shrink-0 shadow-xs"
+                className="w-9 h-9 rounded-full shrink-0 shadow-xs"
               />
-              <div className="flex flex-col">
-                <span className="font-semibold text-sm leading-tight text-foreground">РГСУ</span>
-                <span className="text-[11px] text-muted-foreground leading-tight">Заказ документов</span>
+              <div className="flex flex-col min-w-0">
+                <span className="font-semibold text-sm leading-tight text-foreground truncate">Филиал РГСУ в г. Минске</span>
+                <span className="text-xs text-muted-foreground leading-tight truncate">Справки и документы онлайн</span>
               </div>
             </div>
 
             {/* Правая часть шапки: навигация и тема */}
-            <div className="flex items-center gap-1.5 sm:gap-2">
+            <div className="flex items-center gap-1">
               {data && (
-                <div className="hidden sm:flex items-center gap-2">
+                <div className="hidden sm:flex items-center gap-1">
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Button
                         asChild
                         variant="outline"
                         size="icon"
-                        className="w-9 h-9 rounded-xl border border-slate-200/80 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 dark:hover:bg-primary/20 active:scale-95 transition-all"
+                        className="w-9 h-9 rounded-full border-transparent dark:border-transparent text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-rgsu-ice hover:bg-primary/10 dark:hover:bg-primary/20 active:scale-95 transition"
                       >
                         <a
                           href={data.site.links.home}
@@ -109,7 +109,7 @@ export default function App() {
                         asChild
                         variant="outline"
                         size="icon"
-                        className="w-9 h-9 rounded-xl border border-slate-200/80 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 dark:hover:bg-primary/20 active:scale-95 transition-all"
+                        className="w-9 h-9 rounded-full border-transparent dark:border-transparent text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-rgsu-ice hover:bg-primary/10 dark:hover:bg-primary/20 active:scale-95 transition"
                       >
                         <a
                           href={data.site.links.schedule}
@@ -129,20 +129,16 @@ export default function App() {
               )}
 
               {/* Смена темы — оформлена в абсолютно идентичном стиле */}
-              <ThemeSwitcher className="w-9 h-9 rounded-xl border border-slate-200/80 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 dark:hover:bg-primary/20 active:scale-95 transition-all" />
+              <ThemeSwitcher className="w-9 h-9 rounded-full border-transparent dark:border-transparent text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-rgsu-ice hover:bg-primary/10 dark:hover:bg-primary/20 active:scale-95 transition" />
             </div>
           </div>
         </header>
 
       {/* 2. Основная область (max-w-6xl mx-auto px-4 sm:px-6) */}
       <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 sm:space-y-8 pb-24 sm:pb-8">
-          {/* Заголовок страницы (Hero) в стиле Apple Large Title */}
-        <section className="space-y-2 sm:space-y-2.5">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] sm:text-[11px] font-semibold text-slate-700 dark:text-slate-200 uppercase leading-tight max-w-full">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shrink-0" />
-            <span className="truncate">Филиал РГСУ в г. Минске · Электронная подача заявок</span>
-          </div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground !leading-tight">
+          {/* Заголовок страницы (Hero): дисплейный Bebas Neue */}
+        <section className="space-y-2 sm:space-y-3">
+          <h1 className="font-display font-bold uppercase text-5xl sm:text-display text-foreground">
             {data ? data.site.title : "Заказ справок и документов"}
           </h1>
           <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl">
@@ -183,7 +179,7 @@ export default function App() {
           </div>
         ) : (
           /* Skeleton Loader — реалистичная структура для предотвращения CLS (Layout Shift) */
-          <div className="space-y-8 animate-pulse">
+          <div className="space-y-8">
             {[1, 2].map((section) => (
               <div key={section} className="space-y-4">
                 <div className="flex items-center gap-2.5">
@@ -222,7 +218,7 @@ export default function App() {
               Филиал РГСУ в г. Минске
               <span className="hidden sm:inline font-normal text-muted-foreground text-xs"> · ул. Народная, 21</span>
             </p>
-            <p className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">
+            <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">
               © {new Date().getFullYear()} РГСУ · Выдача документов при предъявлении паспорта
             </p>
           </div>
@@ -232,7 +228,7 @@ export default function App() {
               href={data?.site?.links?.home || "https://rgsu.by"}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors py-1"
+              className="hover:text-primary dark:hover:text-rgsu-ice transition-colors py-1"
             >
               Официальный сайт
             </a>
@@ -241,7 +237,7 @@ export default function App() {
               href={data?.site?.links?.schedule || "https://shedule.rgsu.by"}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors py-1"
+              className="hover:text-primary dark:hover:text-rgsu-ice transition-colors py-1"
             >
               Расписание
             </a>
@@ -260,20 +256,20 @@ export default function App() {
               href={data.site.links.home}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center justify-center gap-1 text-slate-600 dark:text-slate-400 hover:text-primary active:scale-95 transition-all"
+              className="flex flex-col items-center justify-center gap-1 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-rgsu-ice active:scale-95 transition"
             >
               <HugeiconsIcon icon={Home01Icon} size={20} strokeWidth={1.5} />
-              <span className="text-[11px] font-medium leading-none">На сайт</span>
+              <span className="text-xs font-medium leading-none">На сайт</span>
             </a>
 
             <a
               href={data.site.links.schedule}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center justify-center gap-1 text-slate-600 dark:text-slate-400 hover:text-primary active:scale-95 transition-all"
+              className="flex flex-col items-center justify-center gap-1 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-rgsu-ice active:scale-95 transition"
             >
               <HugeiconsIcon icon={Calendar03Icon} size={20} strokeWidth={1.5} />
-              <span className="text-[11px] font-medium leading-none">Расписание</span>
+              <span className="text-xs font-medium leading-none">Расписание</span>
             </a>
           </div>
         </nav>

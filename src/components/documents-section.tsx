@@ -1,6 +1,5 @@
 import { DocumentCategory } from "@/types/documents";
 import { DocumentCard } from "@/components/document-card";
-import { Badge } from "@/components/ui/badge";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   IdCardIcon,
@@ -30,19 +29,21 @@ export function DocumentsSection({ category, id }: DocumentsSectionProps) {
   const CategoryIcon = getCategoryIcon(category.title);
 
   return (
-    <section id={id} className="w-full space-y-4 scroll-mt-20 sm:scroll-mt-24">
-      <div className="sticky top-14 z-30 -mx-4 px-4 sm:-mx-6 sm:px-6 flex items-center justify-between gap-3 border-b border-slate-200/80 dark:border-slate-800 py-2.5 sm:py-3 bg-slate-50/90 dark:bg-slate-950/90 backdrop-blur-md transition-colors">
-        <div className="flex items-center gap-2.5 min-w-0">
-          <div className="w-8 h-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 border border-primary/20 dark:bg-primary/20 shadow-xs">
-            <HugeiconsIcon icon={CategoryIcon} size={18} strokeWidth={1.5} />
-          </div>
-          <h2 className="text-base sm:text-lg md:text-xl font-semibold tracking-tight text-foreground truncate">
-            {category.title}
-          </h2>
+    <section id={id} className="w-full space-y-4 scroll-mt-32">
+      {/* Плавающая стеклянная капсула секции — в стиле Liquid Glass, как хедер */}
+      <div className="section-glass sticky top-[76px] z-30 w-fit max-w-full h-11 flex items-center gap-2 rounded-full px-2 bg-white/80 dark:bg-slate-900/85 backdrop-blur-xl backdrop-saturate-150 border border-white/70 dark:border-white/15 shadow-[0_1px_3px_rgba(15,23,42,0.08),0_4px_12px_rgba(15,23,42,0.06),inset_0_1px_0_0_rgba(255,255,255,0.75)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.5),inset_0_1px_0_0_rgba(255,255,255,0.08)]">
+        <div className="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center shrink-0 shadow-xs">
+          <HugeiconsIcon icon={CategoryIcon} size={15} strokeWidth={1.5} />
         </div>
-        <Badge variant="blue" className="font-mono tabular-nums text-xs shrink-0">
+        <h2 className="min-w-0 text-sm sm:text-base font-semibold tracking-tight text-foreground truncate">
+          {category.title}
+        </h2>
+        <span
+          className="w-7 h-7 rounded-full bg-primary text-white text-sm font-bold flex items-center justify-center shrink-0 shadow-xs"
+          aria-label={`${category.documents.length} документов в категории`}
+        >
           {category.documents.length}
-        </Badge>
+        </span>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {category.documents.map((document) => (
