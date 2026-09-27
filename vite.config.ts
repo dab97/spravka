@@ -36,6 +36,9 @@ export default defineConfig({
     port: 3000,
   },
   build: {
+    // Один CSS-бандл на весь проект: инлайнится в index.html плагином inlineCss,
+    // поэтому ленивые чанки никогда не ссылаются на отдельные CSS-файлы
+    cssCodeSplit: false,
     rollupOptions: {
       output: {
         manualChunks: {

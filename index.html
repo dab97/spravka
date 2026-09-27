@@ -11,9 +11,13 @@
     <link rel="canonical" href="https://spravka.rgsu.by/" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
-    <!-- DNS-prefetch внешних доменов: переходы по ссылкам только по клику, поэтому лёгкий dns-prefetch вместо preconnect -->
+    <!-- DNS-prefetch для внешних ссылок, переходы по которым происходят только по клику -->
     <link rel="dns-prefetch" href="https://rgsu.by" />
     <link rel="dns-prefetch" href="https://shedule.rgsu.by" />
+    <!-- Preconnect к доменам форм заказа: TLS-соединение устанавливается заранее, клик по «Заказать онлайн» открывает форму без задержки -->
+    <link rel="preconnect" href="https://forms.yandex.ru" />
+    <link rel="preconnect" href="https://docs.google.com" />
+    <link rel="preconnect" href="https://forms.gle" />
     <link rel="dns-prefetch" href="https://forms.yandex.ru" />
     <link rel="dns-prefetch" href="https://docs.google.com" />
     <link rel="dns-prefetch" href="https://forms.gle" />

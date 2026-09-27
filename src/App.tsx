@@ -57,6 +57,15 @@ export default function App() {
     };
   }, [reloadKey]);
 
+  useEffect(() => {
+    // Предзагрузка чанков QR-модалки в фоне: клик по иконке открывает её мгновенно
+    const t = window.setTimeout(() => {
+      import("./components/qr-dialog");
+      import("./components/styled-qr-code");
+    }, 2500);
+    return () => window.clearTimeout(t);
+  }, []);
+
   return (
     <TooltipProvider delayDuration={150}>
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">

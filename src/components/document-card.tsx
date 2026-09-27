@@ -2,10 +2,20 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Document } from "@/types/documents";
-import { useState, lazy, Suspense } from "react";
+import { useState, lazy, Suspense, useEffect } from "react";
 
 // Модалка QR-кода — отдельный чанк, монтируется только по клику на иконку
 const QrDialog = lazy(() => import("./qr-dialog"));
+
+// Предзагрузка чанков модалки: при наведении/фокусе на QR-кнопку и один раз в фоне.
+// Флаг на уровне модуля — все карточки греют кэш один раз.
+let qrPrefetched = false;
+const prefetchQrChunks = () => {
+  if (qrPrefetched) return;
+  qrPrefetched = true;
+  import("./qr-dialog");
+  import("./styled-qr-code");
+};
 import {
   Tooltip,
   TooltipContent,
@@ -68,6 +78,8 @@ export function DocumentCard({ document }: DocumentCardProps) {
                     : "cursor-pointer active:scale-95"
                 }`}
                 onClick={handleQrClick}
+                onPointerEnter={prefetchQrChunks}
+                onFocus={prefetchQrChunks}
                 aria-label="Показать QR-код для заказа"
               >
                 <HugeiconsIcon icon={QrCodeIcon} size={18} strokeWidth={1.5} />
