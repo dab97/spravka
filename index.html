@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Тема до первой отрисовки: класс dark на <html> до CSS — иначе белая вспышка у тёмной темы.
+         Ключ хранилища синхронизирован с src/context/theme-provider.tsx (THEME_STORAGE_KEY). -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("spravka-ui-theme");
+          var dark = t === "dark" || ((t === null || t === "system") && matchMedia("(prefers-color-scheme: dark)").matches);
+          if (dark) document.documentElement.classList.add("dark");
+        } catch (e) { /* приватный режим без localStorage — остаёмся в светлой теме */ }
+      })();
+    </script>
     <title>Заказ справок и документов | Филиал РГСУ в г. Минске</title>
     <meta
       name="description"

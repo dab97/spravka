@@ -18,13 +18,10 @@ export default function ThemeSwitcher({
   className,
   showTooltip = true,
 }: ThemeSwitcherProps) {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
-  const isDark =
-    theme === "dark" ||
-    (theme === "system" &&
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches);
+  /* Реактивность обеспечивает провайдер: resolvedTheme меняется и при переключении вручную, и при смене темы ОС */
+  const isDark = resolvedTheme === "dark";
 
   const button = (
     <Button

@@ -41,9 +41,9 @@ export default defineConfig({
     cssCodeSplit: false,
     rollupOptions: {
       output: {
+        // Иконки слиты в vendor (P3-2): отдельный чанк ~7 КБ gzip — лишний запрос
         manualChunks: {
-          vendor: ["react", "react-dom"],
-          icons: ["@hugeicons/react", "@hugeicons/core-free-icons"],
+          vendor: ["react", "react-dom", "@hugeicons/react", "@hugeicons/core-free-icons"],
         },
       },
     },

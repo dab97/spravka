@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Document } from "@/types/documents";
+import { DocumentInfo } from "@/types/documents";
 import { lazy, Suspense } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
@@ -9,7 +9,7 @@ const StyledQrCode = lazy(() =>
 );
 
 interface QrDialogProps {
-  document: Document;
+  document: DocumentInfo;
   onClose: () => void;
 }
 

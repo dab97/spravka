@@ -1,4 +1,5 @@
-export interface Document {
+/* DocumentInfo, а не Document: не затеняем глобальный DOM-тип Document */
+export interface DocumentInfo {
   id: number;
   department: string;
   documentType: string;
@@ -12,7 +13,7 @@ export interface Document {
 
 export interface DocumentCategory {
   title: string;
-  documents: Document[];
+  documents: DocumentInfo[];
 }
 
 export interface SiteLinks {
